@@ -1,0 +1,36 @@
+.cad{
+    background-image: linear-gradient(#ED264A, #f15f7a) ;
+    display: flex;
+    width: 100%;
+    min-width: 1rem;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.formStrap2{
+    width: 50%;
+    /* border: 1px solid black; */
+    background-color: cornl;
+    padding: 30px;
+}
+
+.spaceButtons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_mp_red{
+    font-family: 'Inter';
+  width: 25rem;
+  max-width: 100%;
+  border: 1px solid black;
+  height: 2.5rem;
+  color: rgb(43, 43, 43);
+  border-radius: 1rem;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #ED264A;
+}

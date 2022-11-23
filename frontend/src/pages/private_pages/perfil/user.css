@@ -1,0 +1,50 @@
+.contentUser{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.photoDesc{
+    width: 50%;
+}
+
+.photoDesc img {
+    margin-left: 15rem;
+}
+
+.userActions{
+    display: block;
+    width: 70%;
+}
+
+.userActions h1, h4{
+    font-family: 'Fredoka One';
+}
+
+.cards{
+    width: 25rem;
+    height: 5rem;
+    border: 1px solid rgb(63, 63, 63);
+    margin: 10px;
+    border-radius: .5rem;
+    padding: 5px;
+    color: white;
+    font-style: normal;
+}
+
+.cards:hover{
+box-shadow: 5px 5px 10px 5px black ;
+}
+
+.gridCards{
+    display: flex;
+}
+
+.infoUser{
+    text-align: center;
+    font-family: 'Inter';
+}
+
+.infoUser h2{
+    font-family: 'Fredoka One';
+}

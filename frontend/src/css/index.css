@@ -1,0 +1,298 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-VariableFont_slnt\,wght.ttf') format('truetype')
+}
+.main{
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  /* margin-bottom: 50px; */
+}
+.content{
+  
+  background-image: linear-gradient(#ED264A, #fffdfd) ;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.contentMainPage{
+  margin-top: 80px;
+  width: 100%;
+  display: flex;
+  max-width: 90%;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.contentMainPage img{
+  width: 50%;
+}
+
+.box_log{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  background-color: #E9E9E9;
+  width: 25rem;
+  height: 20rem;
+  padding: 40px;
+  border-radius: 1rem;
+}
+
+.box_cad{
+  background-color: #E9E9E9;
+  width: 40rem;
+  /* height: 25rem; */
+  padding: 40px;
+  margin-bottom: 50px;
+  border-radius: 1rem;
+}
+
+.p_box_{
+  font-family: 'Fredoka One';
+  color: grey;
+  font-size: 12px;
+}
+.p_box_ a{
+  color: #ED264A;
+}
+
+.box p a{
+  color: #ED264A;
+  font-family: 'Fredoka One';
+} 
+
+/* ANALISAR ISSO AQUI */
+.labelInput_peq
+{
+  display: inline-block;
+  /* justify-content: space-between; */
+  width: 42%;
+  margin-right: 30px;
+  font-size: 15px;
+  color: black;
+  
+}
+.big_input_text{
+  font-family: 'fredoka one';
+  width: 25rem;
+  max-width: 100%;
+  border: 1px solid black;
+  height: 2.5rem;
+  border-radius: .5rem;
+  margin-top: 10px;
+}
+
+._input_text{
+  font-family: 'fredoka one';
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid black;
+  height: 2.5rem;
+  border-radius: .5rem;
+  margin-top: 10px;
+}
+
+.btn_mp_green{
+  font-family: 'Inter';
+  width: 25rem;
+  max-width: 100%;
+  border: 1px solid black;
+  height: 2.5rem;
+  color: rgb(43, 43, 43);
+  border-radius: 1rem;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #81e8aa;
+}
+.btn_mp_white{
+  font-family: 'Inter';
+  width: 25rem;
+  font-size: 15px;
+  max-width: 100%;
+  font-weight: bold;
+  border: 1px solid black;
+  height: 2.5rem;
+  color: rgb(43, 43, 43);
+  border-radius: 1rem;
+  margin-top: 10px;
+  background-color: #ffff;
+}
+
+
+.TextLogin{
+  font-size: 54px;
+  font-family: 'Fredoka One';
+}
+
+
+.btn_Login{
+  background-color: #ED264A;
+  border: 1px solid black;
+  border-radius: .5rem;
+  width: 100% ;
+  height: 2.5rem;
+  margin-top: 20px;
+  color: black;
+  font-size: 20px;
+  font-weight: 100;
+  font-family: 'Fredoka One';
+}
+
+.labelInput{
+  display: flexbox;
+  font-size: 15px;
+  color: black;
+  float: left;
+  width: 100%;
+}
+
+
+
+.LgTx{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.InteriorBox{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lgDon{
+  display: block;
+  position: absolute;
+  float: left;
+}
+
+.spacement{
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.lgImg{
+  width: 30rem;
+  display: flex;
+  /* height: 0rem; */
+}
+.TxtCad{
+  color: black;
+  font-family: 'Fredoka One';
+  font-size: 40px;
+  margin-left: -8rem;
+  margin-bottom: 30px;
+  margin-top: -1rem;
+}
+
+.header{
+  width: 100%;
+  max-width: 90%;
+  position:absolute;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  text-decoration: underline;
+  font-size: 15px;
+}
+
+.headerPainel{
+  width: 100%;
+  max-width: 90%;
+  position:absolute;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: underline;
+  font-size: 15px;
+}
+
+.header img{
+  width: 3rem;
+  height: 3rem;
+  margin: 1rem 0rem 0rem 2rem;
+}
+
+.leftcontent{
+  width: 40rem;
+  font-family: 'Inter';
+  margin-left: 50px;
+}
+.first_left_p{
+  font-size: 50px;
+  font-weight: bold;
+}
+.first_left_p label{
+  color: #81e8aa;
+}
+.rightcontent{
+  display: flexbox;
+  justify-content: right;
+  width: 40rem;
+  margin-right: 150px;
+  max-width: 20rem;
+}
+
+.footer{
+  border-top: 2px solid white;
+  width: 100%;
+  max-width: 90%;
+  margin-left: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer label{
+  font-family: 'Fredoka One';
+  color: #ED264A;
+}
+.footer p {
+  font-family: 'Inter';
+  color: rgb(43, 43, 43);
+}
+.footer_center_content{
+  font-size: 20px;
+  width: 30rem;
+  margin: 20px;
+}
+
+.menu{
+  background-color: #fff;
+  border-radius: 1rem;
+  max-width:90%;
+  margin: 15px auto ;
+}
+.menuContainer{
+  max-width: 80%;
+}
+
+.formStrap{
+  font-size: 15px;
+  color: black;
+  line-height: 10px;
+  font-family: 'Inter';
+  font-weight: 500;
+}
+
+.division{
+  display: flex;
+}
