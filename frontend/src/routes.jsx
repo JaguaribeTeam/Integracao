@@ -50,7 +50,7 @@ const AppRouts = () => {
                  <Route exact path="/view-instituicao" element= {<ViewInstituicoes />}/>
                  <Route exact path="/view-orgaos" element= {<ViewListOrgaos/>}/>
 
-                 <Route exact path="/perfil" element= {<UserPerfil/> }/>
+                 <Route exact path="/perfil" element= { <Private> <UserPerfil/> </Private> }/>
 
                  
 

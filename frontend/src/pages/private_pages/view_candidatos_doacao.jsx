@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 import edit from "../../img/icons/edit.svg";
-import DeleteList from '../../components/components-pvp/DeleteList';
+import DeleteUser from '../../components/components-pvp/DeleteUser';
 
 
 import Container from 'react-bootstrap/Container';
@@ -61,7 +61,7 @@ const ViewPainelDoadores = () => {
             </div>
             <div className="btnFunctions">
                 <img src={edit} alt="" />
-                <DeleteList/>
+                <DeleteUser cpf={user.cpf}/>
         </div>
           
               </div>

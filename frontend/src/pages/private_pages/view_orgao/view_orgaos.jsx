@@ -6,7 +6,7 @@ import { returnOrgao } from '../../../services/api';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import DeleteList from '../../../components/components-pvp/DeleteList';
+import DeleteUser from '../../../components/components-pvp/DeleteUser';
 
 import edit from "../../../img/icons/edit.svg";
 import { useState } from 'react';
@@ -51,7 +51,7 @@ const ViewListOrgaos = () => {
             </div>
             <div className="btnFunctions">
                 <img src={edit} alt="" />
-                <DeleteList/>
+                <DeleteUser/>
         </div>
           
               </div>

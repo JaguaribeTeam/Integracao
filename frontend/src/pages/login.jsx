@@ -14,12 +14,14 @@ function LoginPage(){
 
    
         const [email, setEmail] = useState("");
-        const [ password, setPassword] = useState("");
+        const [ senha, setPassword] = useState("");
+
+       
 
         const handleSubmit = (e) =>{
             e.preventDefault();
-            console.log("submit", {email,password} );
-            login(email,password);
+            console.log("submit", {email,senha} );
+            login(email,senha);
         }
     
 
@@ -37,8 +39,8 @@ function LoginPage(){
                 
                  <form onSubmit={handleSubmit}>
                     <div className="box_log" >
-                        <input type='email' className={'big_input_text'} placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
-                        <input type='password' className={'big_input_text'} placeholder='Senha' value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                        <input type='text' className={'big_input_text'} placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                        <input type='password' className={'big_input_text'} placeholder='Senha' value={senha} onChange={(e) => setPassword(e.target.value)}></input>
                             
                             <p className="p_box_">Esqueci minha senha</p>
                             <Button value={'Logar'} type={'submit'} className={'btn_Login'} />

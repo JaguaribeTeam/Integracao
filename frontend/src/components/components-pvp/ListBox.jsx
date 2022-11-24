@@ -2,7 +2,7 @@ import React from 'react';
 import "../../pages/private_pages/main.css";
 
 import edit from "../../img/icons/edit.svg";
-import DeleteList from './DeleteList';
+import DeleteUser from './DeleteUser';
 
 
 
@@ -23,7 +23,7 @@ const ListBox = (props) => {
             </div>
             <div className="btnFunctions">
                 <img src={edit} alt="" />
-                <DeleteList/>
+                <DeleteUser/>
             </div>
         </div>
      );

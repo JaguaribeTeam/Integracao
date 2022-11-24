@@ -1,6 +1,7 @@
 import React, {useState,createContext, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { api, userLogin } from '../services/api';
 
 export const AuthContext = createContext();
 
@@ -13,6 +14,7 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
+
         const recoveredUser = localStorage.getItem('user');
 
         if(recoveredUser){
@@ -23,25 +25,28 @@ const AuthProvider = ({children}) => {
 
     },[]);
 
-    const login = (email, password) => {
+    const login = async (email, senha) => {
 
-        console.log('login', email,password);
+        const response = await userLogin(email, senha);
 
         // API PARA CRIAR LOGIN
-        const loggedUser = {
-            id:'123',
-            email
-        };
+        const loggedUser = response.data.usuarioAutenticado.usuarioAutenticado.nome;
+
+        // const loggedUser = {
+        //     id: "123",
+        //     senha
+        // };
+        const token = response.data.usuarioAutenticado.token;
         // Deixar as informações armazenadas
         localStorage.setItem('user', JSON.stringify(loggedUser));
+        localStorage.setItem('token', JSON.stringify(token));
 
-        if(password === '12345'){
-        setUser({loggedUser });
+        // api.defaults.headers.Authorization = `Bearer ${token}`;
+
+        
+        setUser(loggedUser);
         navigate("/perfil");
-        }
-        // else{
-        //     console.log('foi n')
-        // }
+        
       };
 
     const logout = () =>{

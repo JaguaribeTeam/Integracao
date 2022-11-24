@@ -15,12 +15,12 @@ import { Link } from 'react-router-dom';
 
 const ContinuarCadastro = () => {
 
-  const [name,setName] = useState("");
+  const [nome,setName] = useState("");
   const [cpf, setCpf] = useState("");
   const [email,setEmail] = useState("");
-  const [tiposanguineo, setTipoSanguineo] = useState("");
+  const [tipo_sanguineo, setTipoSanguineo] = useState("");
 //   const [telefone, setTelefone] = useState("");
-  const [dataNascimento, setDataNascimento] = useState("");
+  const [dt_nascimento, setDataNascimento] = useState("");
   const [cep, setCep] = useState("");
   const [logradouro, setRua] = useState("");
   const [complemento, setComplemento] = useState("");
@@ -28,17 +28,13 @@ const ContinuarCadastro = () => {
   const [bairro, setBairro] = useState("");
   const [estado, setEstado] = useState("");
   const [cidade, setCidade] = useState("");
-  const [password, setPassword] = useState("");
+  const [senha, setPassword] = useState("");
 
   const handleSubmit = async (e) =>{
     e.preventDefault();
-    await createUser (name, cpf, email,password,dataNascimento,cep,logradouro,numero,complemento,bairro,cidade,estado,tiposanguineo);
-        console.log('deu bom');
+
+    await createUser (nome, cpf, email,senha,dt_nascimento,cep,logradouro,numero,complemento,bairro,cidade,estado,tipo_sanguineo);
   }
-
-
-
-
 
     return ( 
         <div className="main">

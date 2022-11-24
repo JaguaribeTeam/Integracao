@@ -7,6 +7,9 @@ import img from "../../../img/Smiley face-amico(1).png"
 import { Link } from 'react-router-dom';
 
 const UserPerfil = () => {
+
+    const usuario = localStorage.getItem("user");
+
     return ( 
         <div className="main">
             <MenuPrivate/>  
@@ -16,8 +19,8 @@ const UserPerfil = () => {
                     <div className="photoDesc">
                         <div className="infoUser">
                             {/* utilizar COMPONENT AQUI */}
-                            <h2>Francisco Alessandro CLemente Silva</h2>
-                            <p>Tipo de usuário: ADMININSTRADOR</p> 
+                            <h2>Seja Bem Vindo {usuario}</h2>
+                            {/* <p>Tipo de usuário: </p>  */}
                         </div>
                         <img src={img} width='350px'/>
                     </div> 

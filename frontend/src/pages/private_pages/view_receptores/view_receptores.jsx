@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CadastroUsuarioDoador from '../cadastro_usuario/Cadastro_Usuario';
 import { returnUser } from '../../../services/api';
-import DeleteList from '../../../components/components-pvp/DeleteList';
+import DeleteUser from '../../../components/components-pvp/DeleteUser';
 
 import edit from "../../../img/icons/edit.svg";
 
@@ -32,7 +32,7 @@ const ViewReceptores = () => {
       <Col></Col>
         <Col md={{span:6, offset: 0}} className='actions_nav' >
             <Row>
-                <Col md={{span:6, offset: 0}} className='actions_nav'>Candidatos a doação </Col>
+                <Col md={{span:6, offset: 0}} className='actions_nav'>Receptores </Col>
                 <Col md={{span:1, offset: 4}} className='actions_nav' > <CadastroUsuarioDoador /> </Col>
             </Row>
         </Col>
@@ -56,7 +56,7 @@ const ViewReceptores = () => {
             </div>
             <div className="btnFunctions">
                 <img src={edit} alt="" />
-                <DeleteList/>
+                <DeleteUser cpf={user.cpf}/>
         </div>
           
               </div>
