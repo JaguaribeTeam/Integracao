@@ -33,7 +33,7 @@ const ContinuarCadastro = () => {
   const handleSubmit = async (e) =>{
     e.preventDefault();
 
-    await createUser (nome, cpf, email,senha,dt_nascimento,cep,logradouro,numero,complemento,bairro,cidade,estado,tipo_sanguineo);
+    await createUser (nome, cpf, email,senha,dt_nascimento,cep,logradouro, Number(numero) ,complemento,bairro,cidade,estado,tipo_sanguineo);
   }
 
     return ( 

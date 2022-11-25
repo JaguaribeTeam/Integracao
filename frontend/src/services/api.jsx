@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "http://localhost:3000/api/v1"
+    baseURL: "http://localhost:3001/api/v1"
 })
 
 
@@ -37,11 +37,7 @@ export const userLogin = async (email, senha) => {
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 export const deleteUser = async (cpf, token) => {
-    const delUser = await api.delete(`/usuario/:${cpf}`,{
-        headers: {
-            authorization: token
-        }
-    })
+    const delUser = await api.delete(`/usuario/${cpf}?token=${JSON.parse(token)}`)
     return delUser.data;
 }
 

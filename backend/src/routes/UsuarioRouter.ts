@@ -26,6 +26,7 @@ usuarioRouter.post("/api/v1/usuario", async (req, res) => {
     const usuarioCreated:UsuarioSemSenhaInterface = await usuarioController.CreateUsuario(dataUsuario);
     return res.status(201).json(usuarioCreated);
   } catch (error) {
+    console.log(error);
     return res.status(400).send("Não foi possível criar um novo usuário!");
   }
 });

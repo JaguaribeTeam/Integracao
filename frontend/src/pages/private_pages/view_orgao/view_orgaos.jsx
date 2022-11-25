@@ -41,7 +41,7 @@ const ViewListOrgaos = () => {
       <Row >
       <Col></Col>
         <Col  md={{span:7, offset: 1}} className='box_painel' >
-          <ul style={{'list-style':'none'}}>
+          <ul style={{'listStyle':'none'}}>
 
           {orgao.map(orgao => (
             <div className="listBox">

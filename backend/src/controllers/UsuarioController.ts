@@ -94,6 +94,21 @@ export class UsuarioController implements PrismaUsuarioController {
    * melhor visualização das funcionalidades do controller.
    */
   async DeleteUsuarioByCpf(cpf: string) {
+    const id_usuario = await prisma.usuario.findFirst({
+      where: {
+        cpf: cpf
+      },
+      select: {
+        id_usuario: true
+      }
+    });
+
+    await prisma.doador.delete({
+      where: {
+        id_usuario: id_usuario?.id_usuario
+      }
+    });
+
     const deleteOrNot: UsuarioSemSenhaInterface = await prisma.usuario.delete({
       where: {
         cpf: cpf,
