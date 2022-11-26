@@ -15,6 +15,7 @@ function DeleteList({cpf}) {
   const removeUser = async () => {
       await deleteUser(cpf, token);
       handleClose();
+      window.location.reload();
   }
 
   return (

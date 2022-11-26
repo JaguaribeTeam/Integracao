@@ -5,6 +5,7 @@ import '../css/index.css';
 import { AuthContext } from "../contexts/auth";
 import Button from "../components/Buttons";
 import Logo from "../img/logo3d.png";
+import { Link } from "react-router-dom";
 // import Logo2 from "./img/logoRed.png";
 
 
@@ -44,7 +45,7 @@ function LoginPage(){
                             
                             <p className="p_box_">Esqueci minha senha</p>
                             <Button value={'Logar'} type={'submit'} className={'btn_Login'} />
-                            <p className="p_box_">Não tem uma conta ? <a href="#">Registre-se</a></p>
+                            <p className="p_box_">Não tem uma conta ? <Link to="/cadastro">Registre-se</Link></p>
                     </div>
                 </form>
                 </div>

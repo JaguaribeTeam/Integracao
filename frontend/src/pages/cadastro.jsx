@@ -9,11 +9,13 @@ import { createUser } from '../services/api';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 const ContinuarCadastro = () => {
+
+  const navigate = useNavigate();
 
   const [nome,setName] = useState("");
   const [cpf, setCpf] = useState("");
@@ -33,7 +35,9 @@ const ContinuarCadastro = () => {
   const handleSubmit = async (e) =>{
     e.preventDefault();
 
-    await createUser (nome, cpf, email,senha,dt_nascimento,cep,logradouro, Number(numero) ,complemento,bairro,cidade,estado,tipo_sanguineo);
+    const user = await createUser (nome, cpf, email,senha,dt_nascimento,cep,logradouro, Number(numero) ,complemento,bairro,cidade,estado,tipo_sanguineo);
+    
+    if (user) navigate('/login');
   }
 
     return ( 
@@ -72,10 +76,14 @@ const ContinuarCadastro = () => {
                         <Form.Label>Tipo Sanguineo</Form.Label>
                         <Form.Select defaultValue="Choose..."  onChange={(e) => setTipoSanguineo(e.target.value)}>
                             <option></option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>AB</option>
-                            <option>O</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
                         </Form.Select>
                         </Form.Group>
 
