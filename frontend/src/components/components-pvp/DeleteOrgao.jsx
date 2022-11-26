@@ -7,12 +7,14 @@ import { deleteOrgao } from '../../services/api';
 
 function DeleteOrgao({id}) {
   const [show, setShow] = useState(false);
+  const token = localStorage.getItem("token");
+
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const removeUser = async () => {
-      await deleteUser(id);
+  const removeOrgao = async () => {
+      await deleteOrgao(id,token);
       handleClose();
   }
 
@@ -24,12 +26,12 @@ function DeleteOrgao({id}) {
         <Modal.Header closeButton>
           <Modal.Title>Exclusão</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Tem certeza que deseja excluir este usuário ?</Modal.Body>
+        <Modal.Body>Tem certeza que deseja excluir este orgão ?</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancelar
           </Button>
-          <Button variant="primary" onClick={removeUser}>
+          <Button variant="primary" onClick={removeOrgao}>
         Confirmar
           </Button>
         </Modal.Footer>
@@ -38,4 +40,4 @@ function DeleteOrgao({id}) {
   );
 }
 
-export default DeleteList;
+export default DeleteOrgao;

@@ -44,11 +44,9 @@ const EditUser =  ({cpfUser}) => {
 
     const handleShow = async (e) =>{
         e.preventDefault(); 
-       const response = await editUser ( cpfUser,token,cep,logradouro, Number(numero) ,complemento,bairro,cidade,estado,tipo_sanguineo);
-    // const response = await returnUserCPF(cpfUser);
-        console.log(response);
+       const response = await editUser ( cpfUser,token,nome, cpf, email,senha,dt_nascimento,cep,logradouro, Number(numero) ,complemento,bairro,cidade,estado,tipo_sanguineo);
         // setBairro('meu bairro');
-        // setLgShow(false);
+        setLgShow(false);
     }
 
     

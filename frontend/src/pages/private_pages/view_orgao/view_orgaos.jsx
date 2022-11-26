@@ -10,6 +10,8 @@ import DeleteUser from '../../../components/components-pvp/DeleteUser';
 
 import edit from "../../../img/icons/edit.svg";
 import { useState } from 'react';
+import CadastroOrgao from '../cadastro_orgao/Cadastro_Orgao';
+import DeleteOrgao from '../../../components/components-pvp/DeleteOrgao';
 
 const ViewListOrgaos = () => {
 
@@ -35,7 +37,9 @@ const ViewListOrgaos = () => {
         <Col md={{span:6, offset: 0}} className='actions_nav' >
             <Row>
                 <Col md={{span:6, offset: 0}} className='actions_nav'>Orgãos Presentes no Sistema </Col>
-                <Col md={{span:1, offset: 4}} className='actions_nav' >  </Col>
+                {userBool !== "false" && ( 
+                  <Col md={{span:1, offset: 4}} className='actions_nav' > <CadastroOrgao/> </Col>
+                )}
             </Row>
         </Col>
         <Col></Col>
@@ -54,7 +58,7 @@ const ViewListOrgaos = () => {
             {userBool !== "false" && ( 
               <>
               <img src={edit} alt="" />
-              <DeleteUser/>
+              <DeleteOrgao id={orgao.id} />
               </>
 
             )}

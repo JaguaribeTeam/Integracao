@@ -11,7 +11,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Link, useNavigate } from 'react-router-dom';
 
-
+import InputMask from 'react-input-mask';
 
 const ContinuarCadastro = () => {
 
@@ -66,7 +66,7 @@ const ContinuarCadastro = () => {
 
                         <Form.Group as={Col} controlId="formGridEmail">
                         <Form.Label>CPF</Form.Label>
-                        <Form.Control onChange={(e) => setCpf(e.target.value)} />
+                        <Form.Control as={InputMask} mask='999.999.999-99' onChange={(e) => setCpf(e.target.value)} />
                         </Form.Group>
                     </Row>
 
@@ -89,7 +89,7 @@ const ContinuarCadastro = () => {
 
                         <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>Data de Nascimento</Form.Label>
-                        <Form.Control onChange={(e) => setDataNascimento(e.target.value)} />
+                        <Form.Control as={InputMask} mask='99-99-9999'  onChange={(e) => setDataNascimento(e.target.value)} />
                         </Form.Group>  
                     </Row>
 

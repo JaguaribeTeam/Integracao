@@ -21,7 +21,7 @@ const ViewReceptores = () => {
       async function loadUser(){
         const response = await returnUser();
         setReceptores(response);
-      } loadUser();;
+      } loadUser();
   }, []);
 
     return ( 
@@ -55,7 +55,7 @@ const ViewReceptores = () => {
             <div className="listBox">
               <div className="informations">
               {userBool !== "false" && (
-                <p>Nome:{user.nome}</p>
+                <p>Nome: {user.nome}</p>
               )}
                 <p>Tipo Sanguineo: {user.tipo_sanguineo}</p>
                 <p>Cidade: {user.cidade}</p>

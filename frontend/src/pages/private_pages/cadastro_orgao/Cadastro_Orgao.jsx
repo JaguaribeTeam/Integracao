@@ -12,17 +12,24 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 import IconAdd from "../../../img/icons/person-add.svg";
+import { insertOrgao } from '../../../services/api';
 
 
 const CadastroOrgao = () => {
     
-    const [orgao, setOrgao] = useState('');
+    const [nome, setOrgao] = useState('');
     const [doador, setDoador] = useState('');
     const [idadeDoador, setIdadeDoador] = useState('');
     const [medico, setMedico] = useState('');
     const [instituicao, setInstituicao] = useState('');
     const [data, setData] = useState('');
     const [motivo, setMotivo] = useState('');
+
+    const handleAdd = async (e) =>{
+        e.preventDefault(); 
+        await insertOrgao (nome);
+        setLgShow(false)
+    }
 
 
     const [lgShow, setLgShow] = useState(false);
@@ -47,13 +54,13 @@ const CadastroOrgao = () => {
                     <Modal.Body>
 
             {/* A partir daqui é criação do formulário  */}
-                    <Form className='formStrap'>
+                    <Form className='formStrap' onSubmit={handleAdd} >
                     <Row className="mb-1">
                         <Form.Group as={Col} controlId="formGridCadOrgao">
                         <Form.Label>Orgão</Form.Label>
                         <Form.Control onChange={(e)=> setOrgao(e.target.value)} />
                         </Form.Group>
-
+{/* 
                         <Form.Group as={Col} controlId="formGridCadDtNasc">
                         <Form.Label>Doador</Form.Label>
                         <Form.Control onChange={(e)=> setDoador(e.target.value)}/>
@@ -91,8 +98,8 @@ const CadastroOrgao = () => {
                         <Form.Control onChange={(e)=> setMotivo(e.target.value)} />
                         </Form.Group>
 
-                        </Row>
-                    
+                        </Row> */}
+                    </Row>
 
       <Button variant="primary" type="submit" className='btn_mp_green' value='Cadastrar' ></Button>
     </Form>

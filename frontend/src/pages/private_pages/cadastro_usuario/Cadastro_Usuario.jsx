@@ -10,6 +10,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 import { createUser } from '../../../services/api';
+import InputMask from 'react-input-mask';
 
 import IconAdd from "../../../img/icons/person-add.svg";
 
@@ -73,7 +74,8 @@ const CadastroUsuarioDoador = () => {
 
                         <Form.Group as={Col} controlId="formGridCadCPF">
                         <Form.Label>CPF</Form.Label>
-                        <Form.Control  onChange={(e) => setCpf(e.target.value) } />
+                        <Form.Control as={InputMask}
+      mask="999.999.999-99" onChange={(e) => setCpf(e.target.value) } />
                         </Form.Group>
 
                     </Row>
@@ -99,7 +101,7 @@ const CadastroUsuarioDoador = () => {
 
                         <Form.Group as={Col} controlId="formGridCadDtNasc">
                         <Form.Label>Data de Nascimento</Form.Label>
-                        <Form.Control  onChange={(e) => setDataNascimento(e.target.value) } />
+                        <Form.Control as={InputMask} mask='99-99-9999' onChange={(e) => setDataNascimento(e.target.value) } />
                         </Form.Group> 
                     </Row>
 

@@ -9,6 +9,7 @@ import DeleteUser from '../../../components/components-pvp/DeleteUser';
 import edit from "../../../img/icons/edit.svg";
 import { useState, useEffect } from 'react';
 import { returnInstituicao } from '../../../services/api';
+import CadastroInstituicao from '../cadastro_insituicao/Cadastro_Instituicoes';
 
 
 
@@ -36,7 +37,7 @@ const userBool = localStorage.getItem("admin");
             <Row>
                 <Col md={{span:6, offset: 0}} className='actions_nav'>Instituições</Col>
                 {userBool !== "false" && (
-                  <Col md={{span:1, offset: 4}} className='actions_nav' >Cadastrar  </Col>
+                  <Col md={{span:1, offset: 4}} className='actions_nav' ><CadastroInstituicao/>  </Col>
                 )}
           
             </Row>
@@ -52,6 +53,9 @@ const userBool = localStorage.getItem("admin");
             <div className="listBox">
               <div className="informations">
                 <p>Nome: {instituicao.nome}</p>
+                <p>CNPJ: {instituicao.cnpj}</p>
+                <p>Telefone: {instituicao.telefone}</p>
+                <p>Cidade: {instituicao.cidade}</p>
             </div>
             <div className="btnFunctions">
             {userBool !== "false" && (

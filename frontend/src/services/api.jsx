@@ -27,8 +27,18 @@ export const returnOrgao = async() => {
     return orgao.data;
 }
 
+export const insertOrgao = async(nome) => {
+    const create = await api.post('/orgao',{nome});
+    return create.data;
+}
+
 export const returnInstituicao = async() => {
     const instituicao = await api.get('/instituicao');
+    return instituicao.data;
+}
+
+export const cadastroInsit = async(nome, cnpj, email,cep,logradouro, numero ,complemento,bairro,cidade,estado,telefone) =>{
+    const instituicao = await api.post('/instituicao',{ nome, cnpj, email,cep,logradouro, numero,complemento,bairro,cidade,estado,telefone});
     return instituicao.data;
 }
 
@@ -45,8 +55,8 @@ export const deleteUser = async (cpf, token) => {
     return delUser.data;
 }
 
-export const deleteOrgao = async (id) => {
-    const delOrgao = await api.delete(`/orgao/:${id}`);
+export const deleteOrgao = async (id,token) => {
+    const delOrgao = await api.delete(`/orgao/${id}?token=${JSON.parse(token)}`);
     return delOrgao.data;
 }
 
@@ -55,8 +65,8 @@ export const deleteOrgao = async (id) => {
 //                  EDIT 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-export const editUser = async (cpfUser, token,cep,logradouro,numero,complemento,bairro,cidade,estado,tipo_sanguineo) => {
-    const edit = await api.put(`/usuario/endereco/${cpfUser}?token=${JSON.parse(token)}`,{cep,logradouro,numero,complemento,bairro,cidade,estado,tipo_sanguineo})
+export const editUser = async (cpfUser, token, nome, cpf, email,senha,dt_nascimento,cep,logradouro,numero,complemento,bairro,cidade,estado,tipo_sanguineo) => {
+    const edit = await api.put(`/usuario/endereco/${cpfUser}?token=${JSON.parse(token)}`,{nome, cpf, email,senha,dt_nascimento,cep,logradouro,numero,complemento,bairro,cidade,estado,tipo_sanguineo})
     return edit.data;
 }
 

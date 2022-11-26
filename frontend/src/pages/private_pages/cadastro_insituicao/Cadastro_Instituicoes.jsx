@@ -10,7 +10,8 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 import IconAdd from "../../../img/icons/person-add.svg";
-
+import InputMask from 'react-input-mask';
+import { cadastroInsit } from '../../../services/api';
 
 const CadastroInstituicao = () => {
 
@@ -25,6 +26,10 @@ const CadastroInstituicao = () => {
     const [bairro, setBairro] = useState('');
     const [cidade, setCidade] = useState('');
     const [estado, setEstado] = useState('');
+
+  const  handleAdd = async (e) => {
+        await cadastroInsit (nome, cnpj, email,cep,logradouro, Number(numero) ,complemento,bairro,cidade,estado,telefone);
+    }
 
     const [lgShow, setLgShow] = useState(false);
     
@@ -49,11 +54,11 @@ const CadastroInstituicao = () => {
                     <Modal.Body>
 
             {/* A partir daqui é criação do formulário  */}
-                    <Form className='formStrap'>
+                    <Form className='formStrap' onSubmit={handleAdd} >
                     <Row className="mb-1">
                         <Form.Group as={Col} controlId="formGridCadCPNJ">
                         <Form.Label>CNPJ</Form.Label>
-                        <Form.Control onChange={(e) => setCnpj(e.target.value) } />
+                        <Form.Control as={InputMask} mask="99.999.999/9999-99" onChange={(e) => setCnpj(e.target.value) } />
                         </Form.Group>
 
                     </Row>
