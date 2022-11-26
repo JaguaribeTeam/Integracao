@@ -13,6 +13,8 @@ import edit from "../../../img/icons/edit.svg";
 
 const ViewReceptores = () => {
 
+  const userBool = localStorage.getItem("admin");
+
     const [receptores, setReceptores] = useState([]);
 
     useEffect (() => {
@@ -33,7 +35,9 @@ const ViewReceptores = () => {
         <Col md={{span:6, offset: 0}} className='actions_nav' >
             <Row>
                 <Col md={{span:6, offset: 0}} className='actions_nav'>Receptores </Col>
-                <Col md={{span:1, offset: 4}} className='actions_nav' > <CadastroUsuarioDoador /> </Col>
+                {userBool !== "false" && (
+                  <Col md={{span:1, offset: 4}} className='actions_nav' > <CadastroUsuarioDoador /> </Col>
+                )}
             </Row>
         </Col>
         <Col></Col>
@@ -47,16 +51,23 @@ const ViewReceptores = () => {
           <ul style={{'list-style':'none'}}>
 
           {receptores.map(user => (
+            
             <div className="listBox">
               <div className="informations">
+              {userBool !== "false" && (
                 <p>Nome:{user.nome}</p>
+              )}
                 <p>Tipo Sanguineo: {user.tipo_sanguineo}</p>
                 <p>Cidade: {user.cidade}</p>
                 <p>Estado: {user.estado}</p>
             </div>
             <div className="btnFunctions">
-                <img src={edit} alt="" />
-                <DeleteUser cpf={user.cpf}/>
+            {userBool !== "false" && ( 
+              <>
+              <img src={edit} alt="" />
+              <DeleteUser cpf={user.cpf}/>
+              </>
+            )}
         </div>
           
               </div>

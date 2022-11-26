@@ -13,7 +13,8 @@ import { returnInstituicao } from '../../../services/api';
 
 
 const ViewInstituicoes = () => {
-
+    
+const userBool = localStorage.getItem("admin");
     const [instituicao, setInstituicao] = useState([]);
 
     useEffect(() => {
@@ -34,7 +35,9 @@ const ViewInstituicoes = () => {
         <Col md={{span:6, offset: 0}} className='actions_nav' >
             <Row>
                 <Col md={{span:6, offset: 0}} className='actions_nav'>Instituições</Col>
-                <Col md={{span:1, offset: 4}} className='actions_nav' >Cadastrar  </Col>
+                {userBool !== "false" && (
+                  <Col md={{span:1, offset: 4}} className='actions_nav' >Cadastrar  </Col>
+                )}
           
             </Row>
         </Col>
@@ -51,8 +54,12 @@ const ViewInstituicoes = () => {
                 <p>Nome: {instituicao.nome}</p>
             </div>
             <div className="btnFunctions">
+            {userBool !== "false" && (
+              <>
                 <img src={edit} alt="" />
                 <DeleteUser/>
+              </>
+             )}
         </div>
           
               </div>

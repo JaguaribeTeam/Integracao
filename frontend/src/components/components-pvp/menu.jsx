@@ -3,12 +3,23 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import "../../css/index.css";
 
+import React, {useContext} from "react";
+
+import {AuthContext} from '../../contexts/auth.jsx';
+
 import Config from "../../img/logoRed.png";
 import Settings from "../../img/icons/settings.svg";
 import Perfil from "../../img/icons/person.svg";
+import Exit from "../../img/icons/exit100.png";
 import { Link } from 'react-router-dom';
 
 function MenuPrivate() {
+
+  const {logout} = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
+  }
 
     return (
       <Navbar  fixed='top' className='menu'  >
@@ -31,8 +42,11 @@ function MenuPrivate() {
            </Link>
             
             <Link>
-              <img src={Settings} width="30" height="30" alt="React Bootstrap logo" style={{'margin-right':'10px'}}/>
+              <img src={Settings} width="30" height="30" alt="React Bootstrap logo" style={{'margin-right':'40px'}}/>
             </Link>
+            
+              <img src={Exit} width="30" height="30" alt="React Bootstrap logo" style={{'margin-right':'10px'}} onClick={handleLogout}  />
+            
          
           </Navbar.Collapse>
         </Container>

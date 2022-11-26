@@ -13,6 +13,8 @@ import { useState } from 'react';
 
 const ViewListOrgaos = () => {
 
+  
+    const userBool = localStorage.getItem("admin");
     const [orgao, setOrgao] = useState([]);
 
     useEffect(() => {
@@ -47,11 +49,15 @@ const ViewListOrgaos = () => {
             <div className="listBox">
               <div className="informations">
                 <p>Nome: {orgao.nome}</p>
-                
             </div>
             <div className="btnFunctions">
-                <img src={edit} alt="" />
-                <DeleteUser/>
+            {userBool !== "false" && ( 
+              <>
+              <img src={edit} alt="" />
+              <DeleteUser/>
+              </>
+
+            )}
         </div>
           
               </div>

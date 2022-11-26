@@ -9,12 +9,15 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-import { createUser } from '../../../services/api';
+import { createUser, editUser, returnUserCPF } from '../../../services/api';
 
 import IconAdd from "../../../img/icons/person-add.svg";
 
+import edit from "../../../img/icons/edit.svg";
+import { useEffect } from 'react';
 
-const CadastroUsuarioDoador = () => {
+
+const EditUser =  ({cpfUser}) => {
 
     const [nome,setName] = useState("");
     const [cpf, setCpf] = useState("");
@@ -30,21 +33,28 @@ const CadastroUsuarioDoador = () => {
     const [estado, setEstado] = useState("");
     const [cidade, setCidade] = useState("");
     const [senha, setPassword] = useState("");
-
+    const token = localStorage.getItem("token");
 
 
     const [lgShow, setLgShow] = useState(false);
 
+
+
+    
+
     const handleShow = async (e) =>{
         e.preventDefault(); 
-        await createUser (nome, cpf, email,senha,dt_nascimento,cep,logradouro, Number(numero) ,complemento,bairro,cidade,estado,tipo_sanguineo);
-        setLgShow(false)
+       const response = await editUser ( cpfUser,token,cep,logradouro, Number(numero) ,complemento,bairro,cidade,estado,tipo_sanguineo);
+    // const response = await returnUserCPF(cpfUser);
+        console.log(response);
+        // setBairro('meu bairro');
+        // setLgShow(false);
     }
 
     
     return (              
         <div>
-            <img src={IconAdd} alt="" className='imgsvg' onClick={() => setLgShow(true)} />
+            <img src={edit} alt="" className='imgsvg' onClick={() => setLgShow(true)} />
 
         {/* Criação do modal */}
 
@@ -56,52 +66,13 @@ const CadastroUsuarioDoador = () => {
                 >
                     <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-lg">
-                        Cadastro usuário
+                        Alterar Informações
                     </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
 
             {/* A partir daqui é criação do formulário  */}
                     <Form className='formStrap' onSubmit={handleShow} >
-                        
-                    <Row className="mb-1">
-
-                    <Form.Group as={Col} controlId="formGridCadNome">
-                        <Form.Label>Nome</Form.Label>
-                        <Form.Control  onChange={(e) => setName(e.target.value) } />
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridCadCPF">
-                        <Form.Label>CPF</Form.Label>
-                        <Form.Control  onChange={(e) => setCpf(e.target.value) } />
-                        </Form.Group>
-
-                    </Row>
-
-                    <Form.Group as={Col} controlId="formGridCadEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type='email' onChange={(e) => setEmail(e.target.value) } />
-                        </Form.Group>
-                    
-
-                    <Row className="mb-1">
-                        
-                        <Form.Group as={Col} controlId="formGridCadTipoSang">
-                        <Form.Label>Tipo Sanguineo</Form.Label>
-                        <Form.Select defaultValue="Choose..."  onChange={(e) => setTipoSanguineo(e.target.value) }>
-                            <option></option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>AB</option>
-                            <option>O</option>
-                        </Form.Select>
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridCadDtNasc">
-                        <Form.Label>Data de Nascimento</Form.Label>
-                        <Form.Control  onChange={(e) => setDataNascimento(e.target.value) } />
-                        </Form.Group> 
-                    </Row>
 
                     <Row className="mb-1">
 
@@ -153,11 +124,6 @@ const CadastroUsuarioDoador = () => {
 
 
                     </Row>
-                        <Form.Group as={Col} controlId="formGridCadSenha">
-                        <Form.Label>Senha</Form.Label>
-                        <Form.Control type='password' onChange={(e) => setPassword(e.target.value) }/>
-                        </Form.Group>
-
       <Button variant="primary" type="submit" className='btn_mp_green' value='Cadastrar' ></Button>
     </Form>
 
@@ -167,4 +133,4 @@ const CadastroUsuarioDoador = () => {
     );
 }
  
-export default CadastroUsuarioDoador;
+export default EditUser;

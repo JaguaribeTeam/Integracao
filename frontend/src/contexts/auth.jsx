@@ -31,26 +31,27 @@ const AuthProvider = ({children}) => {
 
         // API PARA CRIAR LOGIN
         const loggedUser = response.data.usuarioAutenticado.usuarioAutenticado.nome;
-
-        // const loggedUser = {
-        //     id: "123",
-        //     senha
-        // };
         const token = response.data.usuarioAutenticado.token;
+        const admin = response.data.usuarioAutenticado.usuarioAutenticado.admin;
+
         // Deixar as informações armazenadas
         localStorage.setItem('user', JSON.stringify(loggedUser));
         localStorage.setItem('token', JSON.stringify(token));
-
-        // api.defaults.headers.Authorization = `Bearer ${token}`;
-
+        localStorage.setItem('admin', JSON.stringify(admin));
         
+        api.defaults.headers.Authorization = `Bearer ${token}`;
+
         setUser(loggedUser);
         navigate("/perfil");
         
       };
 
     const logout = () =>{
-          console.log('logot')
+
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        localStorage.removeItem('admin');
+        api.defaults.headers.Authorization = null;
             setUser(null);
             navigate('/');
         };

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "http://localhost:3001/api/v1"
+    baseURL: "http://localhost:3000/api/v1"
 })
 
 
@@ -17,6 +17,11 @@ export const returnUser = async() => {
      return user.data;
 }
 
+export const returnUserCPF = async(cpfUser) => {
+    const user = await api.get(`/usuario/${cpfUser}` );
+    return user.data;
+}
+
 export const returnOrgao = async() => {
     const orgao = await api.get('/orgao');
     return orgao.data;
@@ -28,7 +33,6 @@ export const returnInstituicao = async() => {
 }
 
 export const userLogin = async (email, senha) => {
-;
     return  api.post('/login', {email,senha});
 }
 
@@ -45,3 +49,14 @@ export const deleteOrgao = async (id) => {
     const delOrgao = await api.delete(`/orgao/:${id}`);
     return delOrgao.data;
 }
+
+
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//                  EDIT 
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+export const editUser = async (cpfUser, token,cep,logradouro,numero,complemento,bairro,cidade,estado,tipo_sanguineo) => {
+    const edit = await api.put(`/usuario/endereco/${cpfUser}?token=${JSON.parse(token)}`,{cep,logradouro,numero,complemento,bairro,cidade,estado,tipo_sanguineo})
+    return edit.data;
+}
+

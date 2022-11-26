@@ -20,7 +20,7 @@ function PainelComponentDoadores() {
       const response = await returnUser();
       setUsuarios(response.data);
       // console.log(response.data);
-    } loadUser();;
+    } loadUser();
 }, []);
 
 
